@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="page1.css">
+    <script>
+        function Resultat(){
+        var nombre_tire=Math.round(Math.random()*36);
+        var Mise=prompt("Donnez un mise entrer 10 et 100");
+        var pmj=100;
+        var nombre_choisi=prompt("choisez un nombre parmi les nombre suivants svp: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36");
+        document.monFormulaire.résultat.value="Nombre tiré:"+nombre_tire;
+        document.monFormulaire.option1.value="Rejouer";
+        document.monFormulaire.nombrechoisi.value=nombre_choisi;
+        document.monFormulaire.mise.value=Mise;
+        if(nombre_choisi<1||nombre_choisi>36||Mise>pmj)
+        {
+            document.monFormulaire.option1.value="Erreur";
+            document.monFormulaire.option2.value="Rejouer";   
+        }else{
+        if(nombre_tire==nombre_choisi)
+       
+        {   
+            pmj=parseInt(pmj)+parseInt(36*Mise); 
+            document.monFormulaire.option1.value="Gagné solde="+pmj;
+            document.monFormulaire.option2.value="Rejouer";
+        }else{
+            if(nombre_tire%2==0&&nombre_choisi%2==0)
+            {
+             pmj=parseInt(pmj)+parseInt(Mise); 
+            document.monFormulaire.option1.value="Gagné solde="+pmj;
+            document.monFormulaire.option2.value="Rejouer"; 
+            }else{
+                if(nombre_tire%2!=0&&nombre_choisi%2!=0)
+                {
+                    pmj=parseInt(pmj)+parseInt(Mise); 
+                    document.monFormulaire.option1.value="Gagné solde="+pmj;
+                   document.monFormulaire.option2.value="Rejouer"; 
+                }else
+                {
+                    pmj=parseInt(pmj)-parseInt(Mise); 
+                
+                    document.monFormulaire.option1.value="Perdu solde="+pmj;
+                   document.monFormulaire.option2.value="Rejouer";   
+                }
+            }
+        }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div id="all">
+        <div id="entete">
+            La Roulette Bleue
+        </div>
+        <div id="contenu">
+            <div id="description">
+                <div id="hi"> BIENVENUE</div>
+                <div id="ho">La Roulette Bleue est un jeu de roulette gratuit en ligne.<br> Misez et que la fortune vous sourisse!!!</div>
+            </div>
+            
+            <div id="formulaire">
+                <form name="monFormulaire">
+                    <div id="alls"><br>
+                  <label for="Surnom" >Surnom:</label><br>
+                 <input type="text" name="surnom">
+                 <br>
+                 <label for="nombre">Choisissez un nombre et sa parité:</label>
+                 <br>
+                 <select name="parité">
+                     <option selected aria-placeholder="parite"></option>
+                     <option>pair</option>
+                     <option>impair</option>
+                 </select> &nbsp;
+                 <input type="number" name="nombrechoisi"><br>
+                 <label>Entrez la mise:</label> <br>
+                 <input type="number" name="mise" ><br><br>
+
+                 <div id="go"><input type="button" value="GO!" onclick="Resultat();"  id="b"></div>
+                    </div><br><br>
+                    <div id="res"><input type="text" name="résultat"></div><br><br>
+   
+                    <div id="option">
+                 <input type="button" name="option1"  id="op1">&nbsp;
+                 <a href="page3.html"><input type="button" name="option2"  id="op"></a>&nbsp;  <a href="page4.html"><input type="button" value="Quitter"  id="op"></a>
+                 </div>
+                 
+                  
+                </div>
+         </form> 
+             
+            
+           <a href="aide.html"> <div id="aide"> Aide </div></a>
+        </div>
+        <div id="footer">
+            <audio src="audio1.mp4" autoplay loop ></audio>
+            <h5 style="text-align: center; font-style: italic; font-size: swall;">Thanks for visiting!!!</h5> 
+          
+        </div>
+    
+    </div>
+</body>
+</html>
